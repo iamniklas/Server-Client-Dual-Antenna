@@ -30,8 +30,10 @@ public class ClientService extends Thread implements ReceiveCallback {
 
     @Override
     public void onReceiveMessage(String _message) {
-        System.out.println(_message);
+        System.out.println("Client #" + nextId + ": " + _message);
         //Server.makeRPCCallToAll(_message);
-        Server.makeRPCCallNoHost(id, _message);
+
+        //TODO Re-enable so not only the server receives the messages
+        //Server.makeRPCCallNoHost(id, _message);
     }
 }
