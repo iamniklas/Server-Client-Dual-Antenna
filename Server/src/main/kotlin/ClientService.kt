@@ -11,10 +11,7 @@ class ClientService(_socket: Socket) : Thread(), ReceiveCallback {
     var receiver: Receiver? = null
 
     override fun onReceiveMessage(_message: String?) {
-        println("Client #" + nextId + ": " + _message)
-
-        //TODO Re-enable so not only the server receives the messages
-        //Server.makeRPCCallToAll(_message);
+        println("Client #$nextId: $_message")
 
         Server.makeRPCCallNoHost(id, _message);
     }
